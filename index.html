@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stell Cook - Kue Kering Premium Homemade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fefaf6;
+            color: #4a3520;
+            line-height: 1.6;
+            padding-bottom: 20px;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, #d8c1a8, #c9a989);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 32px;
+            color: #7a5c3e;
+            margin-right: 12px;
+        }
+        
+        .logo-text {
+            text-align: left;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.9rem;
+            color: #5a3921;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text .subtitle {
+            font-size: 0.8rem;
+            color: #7a5a3a;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 30px 15px;
+            background-color: #fff9f0;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background-image: url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 249, 240, 0.85);
+            border-radius: 12px;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            color: #8b4513;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+        
+        .hero p {
+            color: #7a5a3a;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            font-size: 1.05rem;
+        }
+        
+        .hero-contact {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-contact a {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .hero-contact i {
+            margin-right: 8px;
+        }
+        
+        /* Produk Section */
+        .products-section {
+            margin: 30px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #8b4513;
+            font-size: 1.7rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: #c9a989;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        /* Grid Produk */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f0e6d9;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.08);
+        }
+        
+        .product-info {
+            padding: 22px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-name {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            color: #5a3921;
+            font-weight: 600;
+        }
+        
+        .product-desc {
+            color: #7a5a3a;
+            font-size: 0.97rem;
+            margin-bottom: 18px;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+        
+        .product-price {
+            color: #8b4513;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .buy-button {
+            display: block;
+            width: 100%;
+            background-color: #25D366;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .buy-button i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .buy-button:hover {
+            background-color: #128C7E;
+            transform: scale(1.02);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+            background-color: #f5e9d9;
+            border-radius: 12px;
+            color: #7a5a3a;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #5a3921;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 8px;
+        }
+        
+        .contact-info a {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            border-top: 1px solid #e0d0bd;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .product-img {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .product-card {
+                margin-bottom: 5px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+            
+            .logo-icon {
+                font-size: 28px;
+            }
+            
+            .hero {
+                padding: 20px 10px;
+            }
+            
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .product-info {
+                padding: 18px;
+            }
+            
+            footer {
+                padding: 20px 15px;
+            }
+        }
+        
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .product-card {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cookie-bite"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>STELL COOK</h1>
+                    <div class="subtitle">PREMIUM HOMEMADE COOKIES</div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Kue Kering Premium dengan Rasa Autentik</h2>
+                <p>Stell Cook menghadirkan kue kering homemade berkualitas dengan bahan-bahan pilihan. Setiap gigitan adalah kenikmatan yang tak terlupakan.</p>
+                <div class="hero-contact">
+                    <a href="https://wa.me/628998112006" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Pesan via WhatsApp: 0899-8112-006
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Produk Section -->
+        <section class="products-section">
+            <h2 class="section-title">Koleksi Stell Cook</h2>
+            
+            <div class="products-grid">
+                <!-- Produk 1: Nastar -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kue Nastar">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Nastar Nanas Premium</h3>
+                        <p class="product-desc">Kue nastar dengan isian selai nanas homemade yang manis dan legit, kulitnya renyah dengan butter aroma yang khas.</p>
+                        <div class="product-price">Rp 85.000 / 500gr</div>
+                        <a href="https://wa.me/628998112006?text=Halo%20Stell%20Cook,%20saya%20mau%20pesan%20Nastar%20Nanas%20Premium" class="buy-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Produk 2: Kue Kacang -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kue Kacang">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Kue Kacang Renyah</h3>
+                        <p class="product-desc">Kue kacang renyah dengan kacang tanah pilihan, dipanggang sempurna hingga kecoklatan dan gurih di setiap gigitan.</p>
+                        <div class="product-price">Rp 75.000 / 500gr</div>
+                        <a href="https://wa.me/628998112006?text=Halo%20Stell%20Cook,%20saya%20mau%20pesan%20Kue%20Kacang%20Renyah" class="buy-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Produk 3: Putri Salju -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1508737804141-4c3b688e2546?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Putri Salju">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Putri Salju Lembut</h3>
+                        <p class="product-desc">Kue putri salju dengan taburan gula halus yang melimpah, tekstur lembut dan lumer di mulut dengan aroma mentega yang harum.</p>
+                        <div class="product-price">Rp 90.000 / 500gr</div>
+                        <a href="https://wa.me/628998112006?text=Halo%20Stell%20Cook,%20saya%20mau%20pesan%20Putri%20Salju%20Lembut" class="buy-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Produk 4: Kastengel -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kastengel">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Kastengel Keju Gurih</h3>
+                        <p class="product-desc">Kue kastengel dengan taburan keju cheddar yang melimpah, renyah dan gurih di setiap gigitan dengan aroma keju yang menggoda.</p>
+                        <div class="product-price">Rp 95.000 / 500gr</div>
+                        <a href="https://wa.me/628998112006?text=Halo%20Stell%20Cook,%20saya%20mau%20pesan%20Kastengel%20Keju%20Gurih" class="buy-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Produk 5: Semprit -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1519861531473-920034658307?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kue Semprit">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Semprit Susu Manis</h3>
+                        <p class="product-desc">Kue semprit dengan campuran susu yang membuat teksturnya lembut dan rasanya gurih manis, cocok untuk semua usia.</p>
+                        <div class="product-price">Rp 70.000 / 500gr</div>
+                        <a href="https://wa.me/628998112006?text=Halo%20Stell%20Cook,%20saya%20mau%20pesan%20Semprit%20Susu%20Manis" class="buy-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Produk 6: Lidah Kucing -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1559620192-032c64bc86af?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Lidah Kucing">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Lidah Kucing Renyah</h3>
+                        <p class="product-desc">Kue lidah kucing yang tipis, renyah, dengan rasa butter yang kuat dan tekstur yang ringan, mudah lumer di mulut.</p>
+                        <div class="product-price">Rp 80.000 / 500gr</div>
+                        <a href="https://wa.me/628998112006?text=Halo%20Stell%20Cook,%20saya%20mau%20pesan%20Lidah%20Kucing%20Renyah" class="buy-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-logo">STELL COOK</div>
+            <div class="contact-info">
+                <p>Pesan kue lezat langsung ke WhatsApp kami:</p>
+                <p><a href="https://wa.me/628998112006" target="_blank"><i class="fab fa-whatsapp"></i> 0899-8112-006</a></p>
+                <p>Setiap hari: 08.00 - 20.00 WIB</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Stell Cook - Kue Kering Premium Homemade. Semua Hak Cipta Dilindungi.</p>
+                <p>Jl. Kue Lezat No. 123, Jakarta - Indonesia</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Animasi untuk header saat di-scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+                header.style.padding = '15px 0';
+            } else {
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
+                header.style.padding = '20px 0';
+            }
+        });
+        
+        // Menambahkan efek smooth scroll untuk semua link
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Menambahkan konfirmasi saat tombol pesan diklik
+        document.querySelectorAll('.buy-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const productName = this.closest('.product-card').querySelector('.product-name').textContent;
+                
+                // Opsional: Simpan produk yang dipilih ke localStorage
+                localStorage.setItem('lastProductClicked', productName);
+                
+                // Animasi tombol diklik
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+        
+        // Optimasi untuk tampilan HP
+        if (window.innerWidth <= 768) {
+            // Sesuaikan padding untuk tampilan yang lebih baik di HP
+            document.querySelector('.hero').style.padding = '25px 10px';
+            
+            // Sesuaikan ukuran font untuk HP kecil
+            if (window.innerWidth <= 480) {
+                document.querySelectorAll('.product-name').forEach(name => {
+                    name.style.fontSize = '1.2rem';
+                });
+                
+                document.querySelectorAll('.product-price').forEach(price => {
+                    price.style.fontSize = '1.3rem';
+                });
+            }
+        }
+        
+        // Menampilkan animasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
